@@ -1,5 +1,7 @@
 ## nodejs-test-task (but it's React)
 
+![msedge_S1KjhqhLGq](https://user-images.githubusercontent.com/90602514/170840829-77d75ad3-c06d-47f9-a14c-f93e68e6c4d8.png)
+
 # Тестовое задание на nodejs
 
 Написать ~~сервер на nodejs~~ **React** приложение, который:
