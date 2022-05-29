@@ -1,4 +1,6 @@
-# Тестовое задание на nodejs
+![msedge_6llktaPQNl](https://user-images.githubusercontent.com/90602514/170880169-ecba91a9-2005-4c48-b546-2e5ddbf5b9f6.png)
+
+# Тестовое задание на nodejs-react
 
 Написать **сервер на nodejs** и **React** приложение, которое:
 
@@ -14,6 +16,7 @@
 # Адреса источников данных
 
 ~~Новости: http://slowpoke.desigens.com/json/1/7000~~
+
 ~~Фразы: http://slowpoke.desigens.com/json/2/3000~~
 
 Локальный сервер: http://localhost:3001
