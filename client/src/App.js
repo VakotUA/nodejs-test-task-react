@@ -2,23 +2,14 @@ import React, { useState, useEffect } from 'react'
 import News from './assets/News'
 import Phrases from './assets/Phrases'
 
-// Rough implementation. Untested.
 function timeout(ms, promise) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      reject(new Error('timeout'))
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('The responce timed out'))
     }, ms)
     promise.then(resolve, reject)
   })
 }
-
-// timeout(1000, fetch('/hello'))
-//   .then(function (response) {
-//     // process response
-//   })
-//   .catch(function (error) {
-//     // might be a timeout error
-//   })
 
 function App() {
   const [newsCount, setNewsCount] = useState(0)
