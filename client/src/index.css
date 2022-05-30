@@ -20,10 +20,6 @@ body {
   transform-origin: center;
 }
 
-.newsBlock:hover {
-  transform: scale(1.05);
-}
-
 .theme {
   display: flex;
   align-items: baseline;
@@ -36,6 +32,10 @@ body {
   text-decoration: none;
   color: #5f84f9;
   font-weight: 400;
+}
+
+.theme:hover > a {
+  text-decoration: underline;
 }
 
 .theme > p {

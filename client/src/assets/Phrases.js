@@ -13,7 +13,9 @@ function Phrases(props) {
 
   return (
     <span className="phrase">
-      <a href="#">{phrase ? phrase : 'Loading...'}</a>
+      <a href={`http://localhost:3001/api/1/1000/${props.index}`}>
+        {phrase ? phrase : 'Loading...'}
+      </a>
     </span>
   )
 }
