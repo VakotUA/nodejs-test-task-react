@@ -13,10 +13,14 @@ body {
 
 /* NEWS */
 
-.newsBlock {
-  margin: 10px auto;
+section {
   width: 600px;
-  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.newsBlock {
+  width: 100%;
+  padding: 10px;
   transform-origin: center;
 }
 

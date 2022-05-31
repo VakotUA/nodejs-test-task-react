@@ -1,34 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import News from './assets/News'
 import Phrases from './assets/Phrases'
-
-function timeout(ms, promise) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject(new Error('The responce timed out'))
-    }, ms)
-    promise.then(resolve, reject)
-  })
-}
+import timeout from './assets/timeout'
 
 function App() {
   const [newsCount, setNewsCount] = useState(0)
   const [phrasesCount, setPhrasesCount] = useState(0)
 
   useEffect(() => {
-    timeout(1000, fetch('/api/0/3000/length'))
+    timeout(1000, fetch('/api/0/2000/length'))
       .then((res) => res.json())
       .then((res) => setNewsCount(res))
       .catch((e) => {
-        console.log(e.message)
+        console.error(e.message)
         setNewsCount(0)
       })
 
-    timeout(1000, fetch('/api/1/3000/length'))
+    timeout(1000, fetch('/api/1/2000/length'))
       .then((res) => res.json())
       .then((res) => setPhrasesCount(res))
       .catch((e) => {
-        console.log(e.message)
+        console.error(e.message)
         setPhrasesCount(0)
       })
   }, [])
@@ -41,7 +33,7 @@ function App() {
             <News key={index} index={index} />
           ))
         ) : (
-          <h3>Не удалось загрузить новости</h3>
+          <h2>Не дождались новостей</h2>
         )}
       </section>
       <section className="phrasesSection">
@@ -54,7 +46,7 @@ function App() {
               <Phrases key={index} index={index} />
             ))
           ) : (
-            <h2>Не удалось загрузить фразы</h2>
+            <h2>Не дождались фраз</h2>
           )}
         </div>
       </section>

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import timeout from './timeout'
 
 function Phrases(props) {
   const [phrase, setPhrase] = useState()
 
   useEffect(() => {
-    fetch(`/api/1/3000/${props.index}`)
+    timeout(6000, fetch(`/api/1/9000/${props.index}`))
       .then((res) => res.json())
       .then((res) => {
         setPhrase(res)
+      })
+      .catch((e) => {
+        console.error(e.message)
+        setPhrase('Failed to load')
       })
   }, [props.index])
 
