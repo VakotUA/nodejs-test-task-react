@@ -5,14 +5,14 @@ function Phrases(props) {
   const [phrase, setPhrase] = useState()
 
   useEffect(() => {
-    timeout(6000, fetch(`/api/1/9000/${props.index}`))
+    timeout(6000, fetch(`/api/1/7000/${props.index}`))
       .then((res) => res.json())
       .then((res) => {
-        setPhrase(res)
+        setPhrase(res.variant)
       })
-      .catch((e) => {
-        console.error(e.message)
+      .catch(() => {
         setPhrase('Failed to load')
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
   }, [props.index])
 

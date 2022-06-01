@@ -18,19 +18,19 @@ function News(props) {
   const [news, setNews] = useState()
 
   useEffect(() => {
-    timeout(6000, fetch(`/api/0/10000/${props.index}`))
+    timeout(6000, fetch(`/api/0/7000/${props.index}`))
       .then((res) => res.json())
       .then((res) => {
-        setNews(res)
+        setNews(res.variant)
       })
-      .catch((e) => {
-        console.error(e.message)
+      .catch(() => {
         setNews({
           title: 'Failed to load',
           url: '#',
           description: '',
           ptime: null,
         })
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
   }, [props.index])
 

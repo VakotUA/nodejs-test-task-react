@@ -8,20 +8,24 @@ function App() {
   const [phrasesCount, setPhrasesCount] = useState(0)
 
   useEffect(() => {
-    timeout(1000, fetch('/api/0/2000/length'))
+    timeout(3000, fetch('/api/0/2000/length'))
       .then((res) => res.json())
-      .then((res) => setNewsCount(res))
-      .catch((e) => {
-        console.error(e.message)
+      .then((res) => {
+        setNewsCount(res.length)
+      })
+      .catch(() => {
         setNewsCount(0)
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
 
-    timeout(1000, fetch('/api/1/2000/length'))
+    timeout(3000, fetch('/api/1/2000/length'))
       .then((res) => res.json())
-      .then((res) => setPhrasesCount(res))
-      .catch((e) => {
-        console.error(e.message)
+      .then((res) => {
+        setPhrasesCount(res.length)
+      })
+      .catch(() => {
         setPhrasesCount(0)
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
   }, [])
 
