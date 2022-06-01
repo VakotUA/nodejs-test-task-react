@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react'
+import timeout from './timeout'
 
 function Phrases(props) {
   const [phrase, setPhrase] = useState()
 
   useEffect(() => {
-    fetch(`/api/1/3000/${props.index}`)
+    timeout(6000, fetch(`/api/1/7000/${props.index}`))
       .then((res) => res.json())
       .then((res) => {
-        setPhrase(res)
+        setPhrase(res.variant)
+      })
+      .catch(() => {
+        setPhrase('Failed to load')
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
   }, [props.index])
 
   return (
     <span className="phrase">
-      <a href="#">{phrase ? phrase : 'Loading...'}</a>
+      <a href={`http://localhost:3001/api/1/1000/${props.index}`}>
+        {phrase ? phrase : 'Loading...'}
+      </a>
     </span>
   )
 }

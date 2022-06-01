@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import timeout from './timeout'
 
 function toHHMMSS(number) {
   let date = new Date(number * 1000)
@@ -17,20 +18,29 @@ function News(props) {
   const [news, setNews] = useState()
 
   useEffect(() => {
-    fetch(`/api/0/7000/${props.index}`)
+    timeout(6000, fetch(`/api/0/7000/${props.index}`))
       .then((res) => res.json())
       .then((res) => {
-        setNews(res)
+        setNews(res.variant)
+      })
+      .catch(() => {
+        setNews({
+          title: 'Failed to load',
+          url: '#',
+          description: '',
+          ptime: null,
+        })
+        // Write to log (╯°□°）╯︵ ┻━┻
       })
   }, [props.index])
 
   return (
     <section className="newsBlock">
       <div className="theme">
-        <a href={news ? news.url : '#'} target="_blank" rel="noreferrer">
+        <a href={news ? news.url : '#'}>
           <h3>НАУКА И ТЕХНИКА</h3>
         </a>
-        <p>{news ? toHHMMSS(news.ptime) : 'Loading...'}</p>
+        <p>{news ? (news.ptime ? toHHMMSS(news.ptime) : '') : 'Loading...'}</p>
       </div>
       <div className="content">
         <h1 className="title">{news ? news.title : 'Loading...'}</h1>

@@ -13,15 +13,15 @@ body {
 
 /* NEWS */
 
-.newsBlock {
-  margin: 10px auto;
+section {
   width: 600px;
-  padding: 10px 0;
-  transform-origin: center;
+  margin: 0 auto;
 }
 
-.newsBlock:hover {
-  transform: scale(1.05);
+.newsBlock {
+  width: 100%;
+  padding: 10px;
+  transform-origin: center;
 }
 
 .theme {
@@ -36,6 +36,10 @@ body {
   text-decoration: none;
   color: #5f84f9;
   font-weight: 400;
+}
+
+.theme:hover > a {
+  text-decoration: underline;
 }
 
 .theme > p {
